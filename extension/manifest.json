@@ -1,0 +1,11 @@
+{
+  "manifest_version": 3,
+  "name": "ThesisPro Citation Assistant",
+  "version": "1.0.1",
+  "description": "Review and fill ThesisPro citation forms from RIS, CSL-JSON, or manual entries. Developed by Ghildert with assistance from ChatGPT.",
+  "permissions": ["activeTab", "scripting"],
+  "action": {
+    "default_title": "ThesisPro Citation Assistant",
+    "default_popup": "popup.html"
+  }
+}

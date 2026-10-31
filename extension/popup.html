@@ -1,0 +1,43 @@
+<!doctype html>
+<html lang="en">
+<head><meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1"><title>ThesisPro Citation Assistant</title><link rel="stylesheet" href="popup.css"></head>
+<body>
+  <header><div class="brand">T<span>+</span></div><div><p class="eyebrow">THESISPRO COMPANION</p><h1>Citations, without the retyping.</h1></div></header>
+  <main>
+    <p class="intro">Import your references, review the details, then fill your open proposal.</p>
+    <div id="destination" class="notice">Checking the current page…</div>
+    <nav aria-label="Entry method"><button id="import-tab" class="tab selected" type="button" aria-pressed="true">Import references</button><button id="manual-tab" class="tab" type="button" aria-pressed="false">Manual entry</button></nav>
+    <section id="import-panel">
+      <label for="source">Paste RIS or CSL-JSON</label>
+      <textarea id="source" rows="7" spellcheck="false" placeholder="Export references from your reference manager as RIS or CSL-JSON, then paste them here."></textarea>
+      <div class="toolbar"><label class="file-button">Choose .ris / .json file<input id="file" type="file" accept=".ris,.json,application/json"></label><button id="example" class="link" type="button">Try an example</button></div>
+      <p class="hint">Formatted APA paragraphs, BibTeX, DOI lookup, and PDF extraction are not supported. Metadata stays in this popup and is cleared when it closes.</p>
+      <button id="review" class="secondary wide" type="button">Review import</button>
+    </section>
+    <section id="manual-panel" hidden>
+      <form id="manual-form">
+        <label for="reference_type">Reference type</label><select id="reference_type" name="reference_type"><option value="journal_article">Journal article</option><option value="book">Book</option><option value="website">Website / Webpage</option><option value="conference_paper">Conference paper</option></select>
+        <label for="authors">Authors · one per line, Last name, First name</label><textarea id="authors" name="authors" rows="2" required placeholder="Dela Cruz, Maria&#10;Santos, Juan"></textarea>
+        <div class="grid"><div><label for="year">Year</label><input id="year" name="year" required placeholder="2026 or n.d."></div><div><label for="title">Title</label><input id="title" name="title" required></div></div>
+        <div id="manual-fields"></div>
+        <button class="secondary wide" type="submit">Add to review queue</button>
+      </form>
+    </section>
+    <section class="review-section"><div class="section-title"><h2>Review queue <span id="count">0</span></h2><button id="clear" class="link" type="button">Clear</button></div><p class="hint">Check against your sources. The website generates the APA preview.</p><ol id="queue"></ol></section>
+    <section class="settings">
+      <label for="style">Citation style · applies to every reference on the page</label><select id="style"><option value="apa7" selected>APA 7th Edition (default)</option><option value="keep">Keep the page's current style</option><option value="apa6">APA 6th Edition</option></select>
+      <label for="mode">Destination</label><select id="mode"><option value="append">Append new references (preserves existing entries)</option><option value="existing">Fill from reference number (adds missing rows)</option></select>
+      <div id="existing-options" hidden><label for="start">Start at reference number</label><input id="start" type="number" min="1" value="1"><label class="check"><input id="overwrite" type="checkbox">Replace all citation fields in the selected rows</label><p class="hint">Missing reference rows are added automatically. Replacement also removes extra authors. Other proposal fields are untouched.</p></div>
+    </section>
+    <button id="fill" class="primary wide" type="button" disabled>Fill references on this page</button>
+    <p id="status" role="status" aria-live="polite">Add references to get started.</p>
+    <p class="hint privacy">Fills form controls only. No automatic saving or submission. No server access, tracking, or external requests.</p>
+  </main>
+  <footer>Developed by <a href="https://github.com/Ghildert" target="_blank" rel="noopener noreferrer">Ghildert</a> with assistance from <a href="https://chatgpt.com/" target="_blank" rel="noopener noreferrer">ChatGPT</a>.</footer>
+  <dialog id="error-dialog" aria-labelledby="error-title" aria-describedby="error-message">
+    <h2 id="error-title">Unable to complete the action</h2>
+    <p id="error-message"></p>
+    <form method="dialog"><button class="primary wide" autofocus>OK</button></form>
+  </dialog>
+  <script type="module" src="popup.js"></script>
+</body></html>
