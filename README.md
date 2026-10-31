@@ -68,6 +68,10 @@ A new import replaces the review queue. Manual entries append to it. Closing the
 
 A successful fill clears the queue to prevent duplicate filling. If a fill fails, inspect the page for partially filled or newly added rows before retrying.
 
+# 6. ⚠️ Students must validate their sources before submitting
+
+**Students are responsible for checking every source against the original publication before submitting their proposal.** Confirm that each source exists, supports the cited claim, and has accurate authors, title, publication date, DOI or URL, and citation formatting. Correct any missing or incorrect details. LLM-generated metadata and automatically filled references still require your review.
+
 ## Supported input and limitations
 
 - Reference types: journal article, book, website/webpage, and conference paper.
